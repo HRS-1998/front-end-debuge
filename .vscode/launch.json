@@ -1,0 +1,36 @@
+{
+    "configurations": [
+
+        {
+            "name": "Launch Edge",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}/vue-debug-demo",
+            /**是否启用临时目录来保存用户数据，如果启用则每次都是新的数据，那些cookie等身份信息
+            就不存在了，需要每次都登录，设置为false说明使用原始的数据卷，登录状态，历史记录这些都是存在的，也可以设置
+            路径，说明用户数据保存在该路径下  true |  false  | path(例如 User/appData/localinfo/)*/
+            // "userDataDir": false  ,
+            /**指定使用的浏览器 */
+            // "runtimeExecutable": "stable"  
+             /**chrome 启动时指定参数， "--auto-open-devtools-for-tabs"：启动时打开devtools, "--incognito":无痕模式启动*/
+            // "runtimeArgs": ["--auto-open-devtools-for-tabs"] 
+            /**是否开启sourceMap*/
+            // "sourceMaps":true
+            /** file指定某一个文件，进行调试*/
+            // "file":"${workspaceFolder}/index.html"
+            /**pathMapping 用于修改调试的内容，把url映射到本地文件 */
+            // "pathMapping": {
+            //     "/static/js":"${workspaceFolder}/src/"
+            // }
+
+        },
+    // {
+    //     "name": "Launch Chrome",
+    //     "request": "launch",
+    //     "type": "chrome",
+    //     "url": "http://localhost:3000",
+    //     "webRoot": "${workspaceFolder}"
+    // }
+    ]
+}

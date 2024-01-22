@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>worker performance optimization</title>
+  </head>
+  <body>
+    <script>
+      function runWorker(url, num) {
+        return new Promise((res, rej) => {
+          debugger;
+          const worker = new Worker(url);
+          worker.postMessage(num);
+          worker.addEventListener("message", function (evt) {
+            res(evt.data);
+          });
+          worker.onerror = rej;
+        });
+      }
+    </script>
+    <script>
+      function a() {
+        b();
+      }
+      function b() {
+        runWorker("./index.js", 10 * 10000 * 10000).then((res) => {
+          console.log("b", res);
+        });
+      }
+
+      a();
+    </script>
+    <script>
+      function c() {
+        d();
+      }
+      function d() {
+        let total = 0;
+        for (let i = 0; i < 1 * 10000 * 10000; i++) {
+          total += i;
+        }
+        console.log("c:", total);
+      }
+      c();
+    </script>
+  </body>
+</html>
